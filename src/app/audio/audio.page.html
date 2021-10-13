@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>audio</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div>
+    <div class="chat-group">
+      <div class="audio-group">
+          <audio *ngFor="let blobU of blobUrlArr" controls>
+          <source [src]="blobU" type="audio/webm">
+          </audio>
+      </div>
+      <div class="chat-audio">
+        <button color="none"
+                class="start-button"
+                ngxLongPress2
+                [minTime]="500"
+                [maxTime]="10000"
+                (onLongPressing)="startRecording()" 
+                (onReleasePressing)="stopRecording()">
+          <img src="../../assets/icon/audio/microphone-vector-icon-on-transparent-260nw-1135839584.jpg" />
+      </button>
+      <div *ngIf="isRecording" class=""> {{recordedTime}} </div>
+      </div>
+
+
+    </div>
+  </div>
+</ion-content>

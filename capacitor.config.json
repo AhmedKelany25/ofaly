@@ -1,0 +1,14 @@
+{
+  "appId": "com.ofaly.application",
+  "appName": "Ofaly",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    }
+  },
+  "linuxAndroidStudioPath": "/opt/android-studio/bin/studio.sh",
+  "cordova": {}
+}

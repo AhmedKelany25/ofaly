@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar class="ion-text-center">
+    <ion-buttons slot="start">
+      <ion-back-button
+        name="arrow-back-outline"
+        text=""
+        defaultHref="health/appointments/add"
+        color="primary"
+      >
+      </ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center" mode="ios">
+      <small> {{ 'medical.search.available_sots' | translate }}</small>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-list>
+    <app-search-item
+      *ngFor="let appointment of appointments"
+      [appointment]="appointment"
+    ></app-search-item>
+  </ion-list>
+</ion-content>

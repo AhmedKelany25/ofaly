@@ -1,0 +1,10 @@
+<ion-list>
+  <app-contact-item
+    *ngFor="let contact of contacts"
+    [contact]="contact"
+    [filters]="filters"
+    [check-mark]="withCheckMark"
+    [selected]="selectedContacts.includes(contact)"
+    (select)="selectContact($event)"
+  ></app-contact-item>
+</ion-list>

@@ -1,0 +1,33 @@
+<app-auth-header [defaultHref]="'auth/country'"></app-auth-header>
+
+<ion-content>
+  <ion-item class="ion-margin">
+    <ion-label color="medium" position="floating">
+      <b> Mobile number </b>
+    </ion-label>
+    <ion-row>
+      <ion-col size="3">
+        <ion-input [value]="dialCode" readonly></ion-input>
+      </ion-col>
+      <ion-col size="9">
+        <ion-input
+          [(ngModel)]="phoneNumber"
+          placeholder="Phone number"
+          type="tel"
+          maxlength="15"
+        ></ion-input>
+      </ion-col>
+    </ion-row>
+  </ion-item>
+
+  <ion-button
+    (click)="requestOtp()"
+    [disabled]="!valid"
+    class="ion-margin"
+    [color]="valid ? 'success' : 'medium'"
+    fill="outline"
+    expand="block"
+  >
+    <b> Next </b>
+  </ion-button>
+</ion-content>

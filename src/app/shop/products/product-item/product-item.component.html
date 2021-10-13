@@ -1,0 +1,21 @@
+<ion-item
+  (click)="selectProduct()"
+  button
+  class="ion-margin-start ion-margin-end ion-no-padding"
+  detail="false"
+  lines="full"
+>
+  <ion-img
+    class="product-image"
+    slot="start"
+    src="assets/shop/place_holder.png"
+  >
+  </ion-img>
+  <ion-label>
+    <h3>{{ product.friendly_name }}</h3>
+    <p>Always in stock</p>
+  </ion-label>
+  <ion-note class="ion-text-center" slot="end">
+    <strong>$ {{ product.price }}</strong>
+  </ion-note>
+</ion-item>

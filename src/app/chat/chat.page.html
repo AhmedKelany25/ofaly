@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button text="" defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title mode="ios">Chat</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <app-chat-list></app-chat-list>
+
+  <ion-fab
+    *ngIf="isDone"
+    class="ion-margin"
+    vertical="bottom"
+    horizontal="end"
+    slot="fixed"
+  >
+    <ion-fab-button (click)="goToContacts()" color="light">
+      <ion-icon color="primary" name="add-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

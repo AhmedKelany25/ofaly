@@ -1,0 +1,12 @@
+.search-bar {
+  --highlight-height: 0;
+}
+
+.empty-contacts {
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+

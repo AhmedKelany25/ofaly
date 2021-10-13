@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons class="ion-no-margin" slot="start">
+      <ion-back-button text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center" mode="ios">Create Category</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-list>
+    <ion-item class="ion-no-margin ion-margin-end">
+      <ion-label class="grey-text" color="primary" position="floating"
+        >Category Title
+      </ion-label>
+      <ion-input #title clearInput inputmode="text" required></ion-input>
+    </ion-item>
+
+    <ion-button
+      (click)="addCategory()"
+      class="ion-margin round-button"
+      color="green"
+      expand="full"
+      fill="outline"
+      shape="round"
+      type="submit"
+    >
+      Add
+    </ion-button>
+  </ion-list>
+</ion-content>

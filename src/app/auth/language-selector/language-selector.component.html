@@ -1,0 +1,22 @@
+<app-auth-header></app-auth-header>
+
+<ion-content>
+  <ion-grid class="ion-no-padding">
+    <ion-row>
+      <ion-col size="4" *ngFor="let lang of languages" class="cell-border">
+        <ion-item
+          lines="none"
+          button
+          (click)="selectLanguage(lang)"
+          detail="false"
+        >
+          <ion-label class="ion-text-center">
+            <ion-img class="language-flag ion-margin" [src]="lang.icon">
+            </ion-img>
+            <ion-text color="dark">{{ lang.name }}</ion-text>
+          </ion-label>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

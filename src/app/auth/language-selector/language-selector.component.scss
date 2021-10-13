@@ -1,0 +1,12 @@
+@import 'src/theme/variables';
+
+.cell-border {
+  border-color: var(--ion-color-light-shade);
+  border-width: 0.01em;
+  border-style: solid;
+}
+
+.language-flag {
+  border: 2px solid var(--ion-color-medium-shade);
+  border-radius: 50%;
+}

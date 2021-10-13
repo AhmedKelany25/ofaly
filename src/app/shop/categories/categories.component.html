@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="end">
+      <ion-button (click)="searchVisible = !searchVisible">
+        <ion-icon name="search" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="shop" text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">{{ title }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item *ngIf="searchVisible" class="ion-margin-top">
+    <ion-input
+      [(ngModel)]="filterValue"
+      clearInput
+      placeholder="Search categories"
+    ></ion-input>
+  </ion-item>
+
+  <ion-list *ngIf="categories.length; else noCategories">
+    <app-category-item
+      *ngFor="let category of categories"
+      [category-item]="category"
+    ></app-category-item>
+  </ion-list>
+  <ng-template #noCategories>
+    <p *ngIf="isCategoryDone; else loading" class="ion-margin">
+      {{
+        filterValue
+          ? "No results found for '" + filterValue + "'"
+          : 'Create categories now'
+      }}
+    </p>
+    <ng-template #loading>
+      <p class="ion-margin">Loading Categories</p>
+    </ng-template>
+  </ng-template>
+  <ion-fab class="ion-margin" horizontal="end" slot="fixed" vertical="bottom">
+    <ion-fab-button (click)="addCategory()" color="light">
+      <ion-icon color="green" name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title mode="ios">Ofaly</ion-title>
+  </ion-toolbar>
+
+  <pinned-apps-bar
+    [pinned-apps]="pinnedApps"
+    [(selectApp)]="selectedApp"
+  ></pinned-apps-bar>
+</ion-header>
+
+<ion-content>
+  <app-chat-list *ngIf="selectedApp === pinnedApps[0]"></app-chat-list>
+  <div *ngIf="pinnedApps.slice(1, 3).includes(selectedApp)" class="empty-app">
+    <ion-text color="medium"> Mini-App not available yet. </ion-text>
+  </div>
+  <app-mini-apps *ngIf="selectedApp === pinnedApps[3]"></app-mini-apps>
+
+  <ion-fab
+    *ngIf="selectedApp === pinnedApps[0] && isDone"
+    class="ion-margin"
+    vertical="bottom"
+    horizontal="end"
+    slot="fixed"
+  >
+    <ion-fab-button (click)="goToContacts()" color="light">
+      <ion-icon color="primary" name="add-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

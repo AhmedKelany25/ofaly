@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="shop" text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center" mode="ios">Products</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item
+      (click)="navigateTo(menu)"
+      *ngFor="let menu of listItems"
+      button
+      detail="false"
+    >
+      <ion-icon [src]="menu.icon" color="primary" slot="start"></ion-icon>
+      <ion-label>{{ menu.title }}</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

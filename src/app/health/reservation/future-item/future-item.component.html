@@ -1,0 +1,54 @@
+<ion-card-header class="ion-no-padding">
+  <ion-item lines="none">
+    <ion-avatar slot="start" class="item-avatar">
+      <img *ngIf="appointment.doctor" [src]="getPicture()" alt="..." />
+    </ion-avatar>
+    <ion-label class="ion-text-wrapper" color="primary">
+      <h3 *ngIf="appointment.doctor">{{ appointment.doctor.name }}</h3>
+      <p
+        *ngIf="appointment.doctor"
+        style="color: grey; text-transform: capitalize"
+      >
+        {{ appointment.doctor.specialty[0] }}
+      </p>
+      <p *ngIf="appointment.doctor" style="color: black">
+        {{ 'medical.appointments.rating' | translate }} :
+        {{ appointment.doctor.rating }}
+      </p>
+    </ion-label>
+  </ion-item>
+</ion-card-header>
+<ion-card-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-text class="ion-text-wrap">
+          <p>{{ 'medical.appointments.time' | translate }}</p>
+          <p style="color: black">
+            <strong>{{ formatTime(appointment.time) }}</strong>
+          </p>
+        </ion-text>
+      </ion-col>
+      <ion-col>
+        <ion-text>
+          <p>{{ 'medical.appointments.date' | translate }}</p>
+          <p style="color: black">
+            <strong>{{ appointment.date }}</strong>
+          </p>
+        </ion-text>
+      </ion-col>
+    </ion-row>
+    <ion-text class="ion-text-wrap">
+      <p>{{ 'medical.appointments.location' | translate }}</p>
+      <p *ngIf="appointment.doctor" style="color: black">
+        <strong>{{ appointment.doctor.location }} </strong>
+      </p>
+    </ion-text>
+  </ion-grid>
+</ion-card-content>
+
+<ion-item lines="none" button detail="false" mode="md">
+  <ion-label class="ion-text-center" color="primary">
+    <strong>{{ 'medical.appointments.see_details' | translate }}</strong>
+  </ion-label>
+</ion-item>

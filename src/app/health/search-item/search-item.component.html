@@ -1,0 +1,68 @@
+<ion-card>
+  <ion-card-content>
+    <ion-item class="ion-no-padding">
+      <ion-avatar class="item-avatar ion-margin-end ion-margin-bottom">
+        <img [src]="getPicture()" alt="..." />
+      </ion-avatar>
+      <ion-text>
+        <p style="color: #dc0028">{{ appointment.name }}</p>
+        <p style="color: #c4c4c4" class="ion-text-capitalize">
+          {{ appointment.specialty }}
+        </p>
+        <p style="color: black">
+          <b>
+            {{ 'medical.appointments.rating' | translate }} :
+            {{ appointment.rating }}
+          </b>
+        </p>
+      </ion-text>
+    </ion-item>
+    <ion-item lines="none" class="ion-margin-top ion-margin-bottom">
+      <ion-icon name="location-outline" slot="start" color="primary"></ion-icon>
+      <ion-text class="ion-text-wrap">
+        <p style="color: #c4c4c4" class="ion-margin-top ion-margin-bottom">
+          {{ 'medical.appointments.location' | translate }}
+        </p>
+        <p style="color: black">{{ appointment.location }}</p>
+      </ion-text>
+    </ion-item>
+    <ion-item>
+      <ion-text>
+        <p style="color: #c4c4c4">
+          {{ 'medical.appointments.date' | translate }}
+        </p>
+        <p style="color: black">{{ formatDate() }}</p>
+      </ion-text>
+    </ion-item>
+    <ion-item style="margin-top: 5px" lines="none">
+      <ion-text style="color: #c4c4c4">
+        {{ 'medical.search.available_sots' | translate }}
+      </ion-text>
+    </ion-item>
+    <ion-grid class="ion-align-content-center">
+      <ion-row>
+        <ion-col
+          *ngFor="let slot of appointment.slots"
+          class="ion-align-content-center"
+          sizeXl
+          sizeLg
+          sizeMd
+          sizeSm
+          sizeXs
+          style="text-align: center"
+        >
+          <ion-button
+            size="small"
+            shape="round"
+            fill="outline"
+            expand="false"
+            mode="md"
+            (click)="selectAppointmentSlot(slot[0])"
+          >
+            {{ formatTime(slot[0]) }}
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card-content>
+</ion-card>

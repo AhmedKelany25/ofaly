@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home" text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title mode="ios" class="ion-text-center">
+      <ion-text>
+        {{ 'medical.medical' | translate }}
+      </ion-text>
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-menu-button auto-hide="false" color="primary"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid class="ion-align-items-center">
+    <ion-row>
+      <ion-col style="text-align: center" *ngFor="let menu of menuItems">
+        <div>
+          <ion-img class="icon" src="{{ menu.icon }}" (click)="goTo(menu)">
+          </ion-img>
+          <ion-label class="ion-text-sm-center" style="color: #7a7a7a">
+            <small> {{ menu.title | translate }}</small>
+          </ion-label>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

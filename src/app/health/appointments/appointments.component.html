@@ -1,0 +1,81 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button name="arrow-back-outline" text="" color="primary">
+      </ion-back-button>
+    </ion-buttons>
+
+    <ion-title class="ion-text-center" mode="ios">
+      <ion-text style="left: 0; height: 0">
+        {{ title | translate }}
+      </ion-text>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row style="text-align: center" (click)="addAppointment()">
+      <ion-col style="text-align: center">
+        <ion-icon class="icon" name="add-outline" color="primary"></ion-icon>
+      </ion-col>
+    </ion-row>
+    <ion-row style="text-align: center" (click)="addAppointment()">
+      <ion-col style="text-align: center">
+        <ion-label class="text" color="primary">
+          {{ 'medical.appointments.make_appointment' | translate }}
+        </ion-label>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col style="text-align: center" class="ion-no-padding ion-no-margin">
+        <ion-item
+          button
+          [color]="showActive(activeTab.past)"
+          lines="none"
+          (click)="open(activeTab.past)"
+          class="ion-align-self-center"
+          mode="md"
+        >
+          <ion-label class="ion-text-center">
+            <small>
+              {{ 'medical.appointments.past' | translate }}
+            </small>
+          </ion-label>
+        </ion-item>
+      </ion-col>
+      <ion-col
+        style="text-align: center"
+        class="ion-align-self-center ion-no-padding ion-no-margin"
+      >
+        <ion-item
+          button
+          lines="none"
+          [color]="showActive(activeTab.future)"
+          mode="md"
+          (click)="open(activeTab.future)"
+        >
+          <ion-label class="ion-text-center">
+            <small>{{ 'medical.appointments.future' | translate }}</small>
+          </ion-label>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <app-reservation
+    *ngIf="appointments.length; else emptyAppointments"
+    [active]="active"
+    [appointments]="appointments"
+  ></app-reservation>
+
+  <ng-template #emptyAppointments>
+    <div class="empty-appointments">
+      <ion-text *ngIf="loaded; else loading" color="medium">
+        No Appointments yet.
+      </ion-text>
+      <ng-template #loading>
+        <ion-text color="medium"> Loading ... </ion-text>
+      </ng-template>
+    </div>
+  </ng-template>
+</ion-content>

@@ -1,0 +1,57 @@
+<form (ngSubmit)="submit()" [formGroup]="typeForm">
+  <ion-grid>
+    <ion-row>
+      <ion-item lines="none">
+        <ion-text>
+          <p>What kind of shop are you setting up?</p>
+        </ion-text>
+      </ion-item>
+      <ion-radio-group
+        (ionChange)="shopType = $event"
+        [value]="shopType"
+        style="width: 100%"
+      >
+        <ion-item lines="none">
+          <ion-label>Supermarket</ion-label>
+          <ion-icon
+            color="primary"
+            slot="start"
+            src="assets/icon/shop/ic_supermarket.svg"
+          ></ion-icon>
+          <ion-radio slot="end" value="supermarket"></ion-radio>
+        </ion-item>
+
+        <ion-item lines="none">
+          <ion-label>Physical store</ion-label>
+          <ion-icon
+            color="primary"
+            slot="start"
+            src="assets/icon/shop/ic_physical_store.svg"
+          ></ion-icon>
+          <ion-radio slot="end" value="physical_store"></ion-radio>
+        </ion-item>
+
+        <ion-item lines="none">
+          <ion-label>Online store</ion-label>
+          <ion-icon
+            color="primary"
+            slot="start"
+            src="assets/icon/shop/ic_online_store.svg"
+          ></ion-icon>
+          <ion-radio slot="end" value="online_store"></ion-radio>
+        </ion-item>
+      </ion-radio-group>
+    </ion-row>
+  </ion-grid>
+  <ion-button
+    [disabled]="!typeForm.valid"
+    class="round-button"
+    class="ion-margin round-button"
+    color="green"
+    expand="full"
+    fill="outline"
+    shape="round"
+    type="submit"
+    >Next
+  </ion-button>
+</form>

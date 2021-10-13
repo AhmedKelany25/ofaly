@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="shop" text=""></ion-back-button>
+    </ion-buttons>
+
+    <ion-title class="ion-text-center" mode="ios">{{ title }}</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="search = true" *ngIf="!search; else closeSearch">
+        <ion-icon name="search"></ion-icon>
+      </ion-button>
+
+      <ng-template #closeSearch>
+        <ion-button (click)="search = false">
+          <ion-icon name="close-outline"></ion-icon>
+        </ion-button>
+      </ng-template>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>

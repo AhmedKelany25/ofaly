@@ -1,0 +1,6 @@
+<ion-segment color="medium" [(ngModel)]="selectedApp" mode="ios">
+  <ion-segment-button *ngFor="let value of pinnedApps" [value]="value">
+    <ion-icon [color]="colorOf(value)" [name]="value.icon"></ion-icon>
+    <ion-label [color]="colorOf(value)">{{ value.name }}</ion-label>
+  </ion-segment-button>
+</ion-segment>

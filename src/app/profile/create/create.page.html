@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title mode="ios"> Ofaly </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-avatar class="personal-image" (click)="presentPopover()">
+    <img [src]="avatar" />
+  </ion-avatar>
+
+  <form [formGroup]="userForm" (ngSubmit)="singUp()">
+    <ion-item class="margin-end" mode="md" lines="inset">
+      <ion-label color="medium" position="floating">
+        <b>First name</b>
+      </ion-label>
+
+      <ion-input formControlName="firstName"></ion-input>
+    </ion-item>
+
+    <ion-item class="margin-end" mode="md" lines="inset">
+      <ion-label color="medium" position="floating">
+        <b>Family name</b>
+      </ion-label>
+
+      <ion-input formControlName="lastName"></ion-input>
+    </ion-item>
+
+    <ion-item class="margin-end" mode="md" lines="inset">
+      <ion-label color="medium" position="floating">
+        <b>Email address</b>
+      </ion-label>
+
+      <ion-input formControlName="email" type="email"></ion-input>
+    </ion-item>
+
+    <ion-button
+      class="ion-margin"
+      [color]="valid() ? 'success' : 'medium'"
+      expand="block"
+      fill="outline"
+      type="submit"
+      [disabled]="!valid()"
+    >
+      <b>Next</b>
+    </ion-button>
+    <ion-button
+      class="ion-margin"
+      [color]="!valid(true) ? 'success' : 'medium'"
+      expand="block"
+      fill="outline"
+      [disabled]="valid(true)"
+      (click)="skip()"
+    >
+      <b>Skip</b>
+    </ion-button>
+  </form>
+</ion-content>

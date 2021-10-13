@@ -1,0 +1,224 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-buttons class="ion-no-margin" slot="start">
+        <ion-back-button icon="close-outline" text=""></ion-back-button>
+      </ion-buttons>
+    </ion-buttons>
+    <ion-title mode="ios">Add product</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="createProduct()">
+        <ion-icon name="checkmark-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <form [formGroup]="productForm">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label position="floating">Name</ion-label>
+            <ion-input formControlName="friendly_name" required></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row
+        *ngIf="
+          (friendlyName.dirty || friendlyName.touched) && friendlyName.errors
+        "
+        class="errors"
+      >
+        <ion-col>
+          <ion-text class="ion-margin-start">
+            <span *ngIf="friendlyName.errors?.required">Name required</span>
+            <span *ngIf="friendlyName.errors?.minLength"
+              >Friendly name should be 1 character or more</span
+            >
+            <span *ngIf="friendlyName.errors?.maxLength">
+              Exceeded max length
+            </span>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label position="floating">Description</ion-label>
+            <ion-input formControlName="description"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label position="floating">Unit price</ion-label>
+            <ion-input
+              formControlName="price"
+              required
+              type="number"
+            ></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label position="floating">Unit cost</ion-label>
+            <ion-input
+              formControlName="cost"
+              required
+              type="number"
+            ></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-item
+            *ngIf="(price.dirty || price.touched) && price.errors"
+            class="errors"
+            lines="none"
+          >
+            <ion-label> Price required</ion-label>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item
+            *ngIf="(cost.dirty || cost.touched) && cost.errors"
+            class="errors"
+            lines="none"
+          >
+            <ion-label> Cost required</ion-label>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label position="floating">Box cost</ion-label>
+            <ion-input
+              formControlName="box_cost"
+              required
+              type="number"
+            ></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label position="floating">Units in box</ion-label>
+            <ion-input
+              formControlName="unit_in_box"
+              min="1"
+              required
+              step="1"
+              type="number"
+            ></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-item
+            *ngIf="(boxCost.dirty || boxCost.touched) && boxCost.errors"
+            class="errors"
+            lines="none"
+          >
+            <ion-label> Box cost required</ion-label>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item
+            *ngIf="(unitInBox.dirty || unitInBox.touched) && unitInBox.errors"
+            class="errors"
+            lines="none"
+          >
+            <ion-label> Unit in box required</ion-label>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label position="floating">Inventory</ion-label>
+            <ion-input
+              formControlName="stock"
+              min="1"
+              required
+              step="1"
+              type="number"
+            ></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label position="floating">Unit type</ion-label>
+            <ion-select
+              formControlName="unit_type"
+              interface="action-sheet"
+              required
+            >
+              <ion-select-option [value]="unitType.piece"
+                >Pieces
+              </ion-select-option>
+              <ion-select-option [value]="unitType.kilogram"
+                >kilogram
+              </ion-select-option>
+              <ion-select-option [value]="unitType.liter"
+                >Liter
+              </ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-item
+            *ngIf="(stock.dirty || stock.touched) && stock.errors"
+            class="errors"
+            lines="none"
+          >
+            <ion-label> Inventory required</ion-label>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item
+            *ngIf="(unit_type.dirty || unit_type.touched) && unit_type.errors"
+            class="errors"
+            lines="none"
+          >
+            <ion-label> Unit type required</ion-label>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label>Charge taxes</ion-label>
+            <ion-toggle color="green"></ion-toggle>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row class="ion-margin-top">
+        <ion-col>
+          <ion-img
+            src="assets/shop/place_holder.png"
+            style="width: 100px; height: 100px; margin: auto"
+          ></ion-img>
+        </ion-col>
+        <ion-col>
+          <ion-item
+            (click)="scan()"
+            *ngIf="!barcode"
+            button
+            detail="false"
+            lines="none"
+          >
+            <ion-label class="ion-text-center">Scan barcode</ion-label>
+          </ion-item>
+          <img id="barcode" style="margin: auto" />
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>

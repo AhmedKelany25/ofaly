@@ -1,0 +1,27 @@
+.icon {
+  width: 100%;
+  height: 90%;
+  max-width: 100px !important;
+  max-height: 250px !important;
+}
+
+.item-avatar {
+  height: 100% !important;
+  width: 80%;
+  max-width: 62px !important;
+  max-height: 62px !important;
+  padding: 0;
+
+  img {
+    padding: 0;
+    height: 100% !important;
+    max-width: 62px !important;
+    max-height: 62px !important;
+  }
+}
+
+.my-custom-class {
+  --background: #222;
+  --spinner-color: #fff;
+  color: #fff;
+}

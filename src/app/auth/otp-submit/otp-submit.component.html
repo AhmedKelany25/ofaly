@@ -1,0 +1,51 @@
+<app-auth-header [defaultHref]="'/auth/phone-number'"></app-auth-header>
+
+<ion-content>
+  <ion-item class="ion-margin">
+    <ion-label color="medium" position="floating">
+      <b> Confirmation Code </b>
+    </ion-label>
+    <ion-input
+      [(ngModel)]="otpCode"
+      type="tel"
+      [pattern]="otpRegex"
+      required
+      minlength="5"
+      maxlength="5"
+      [disabled]="!ongoing"
+    ></ion-input>
+  </ion-item>
+
+  <p class="ion-margin ion-text-center">
+    <ion-note mode="md">
+      Code {{ ongoing ? 'has been' : 'will be' }} sent to {{ phoneNumber }}
+    </ion-note>
+  </p>
+
+  <ion-button
+    (click)="submit()"
+    class="ion-margin"
+    [color]="invalid ? 'medium' : 'success'"
+    fill="outline"
+    expand="block"
+    [disabled]="invalid"
+  >
+    <b> Next </b>
+  </ion-button>
+
+  <ion-button
+    class="ion-margin"
+    [color]="ongoing ? 'medium' : 'success'"
+    fill="outline"
+    expand="block"
+    (click)="requestCode()"
+    [disabled]="ongoing"
+  >
+    <b> Resend confirmation code </b>
+  </ion-button>
+  <p class="ion-margin ion-text-center">
+    <ion-note mode="md" color="dark">
+      Time remaining to submit code {{ countdown }}
+    </ion-note>
+  </p>
+</ion-content>

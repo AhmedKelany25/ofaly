@@ -1,0 +1,32 @@
+<ion-list *ngIf="chats && chats.length; else emptyChats">
+  <app-chat-item
+    *ngFor="let chat of chats"
+    [chat-data]="chat"
+    [cached]="cached(chat.sid)"
+  ></app-chat-item>
+</ion-list>
+
+<ng-template #emptyChats>
+  <div class="empty-chat">
+    <ion-text color="medium" *ngIf="isDone; else loading">
+      No chats here yet.
+    </ion-text>
+
+    <ng-template #loading>
+      <ion-text color="medium"> Loading ... </ion-text>
+    </ng-template>
+  </div>
+</ng-template>
+
+<ion-infinite-scroll
+  position="bottom"
+  threshold="100px"
+  (ionInfinite)="loadChats($event)"
+  [disabled]="chats.length < pageSize"
+>
+  <ion-infinite-scroll-content
+    loadingSpinner="bubbles"
+    loadingText="Loading messages..."
+  >
+  </ion-infinite-scroll-content>
+</ion-infinite-scroll>

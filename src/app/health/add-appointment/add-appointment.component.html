@@ -1,0 +1,71 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button
+        name="arrow-back-outline"
+        text=""
+        defaultHref="health/appointments"
+        color="primary"
+      >
+      </ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center" mode="ios">
+      <ion-text style="left: 0; height: 0">
+        <small>{{ 'medical.appointments.new_appointment' | translate }}</small>
+      </ion-text>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding-top">
+  <form (ngSubmit)="searchAppointment()" [formGroup]="searchForm">
+    <ion-card>
+      <ion-item lines="none">
+        <ion-label position="floating" style="color: #7a7a7a">
+          {{ 'medical.appointments.choose_specialty' | translate }}</ion-label
+        >
+        <ion-select
+          placeholder="{{ 'medical.all_specialty' | translate }}"
+          formControlName="specialty"
+        >
+          <ion-select-option *ngFor="let item of specialties" [value]="item">
+            <ion-text *ngIf="lang == 'en'">
+              {{ capitalize(item.en) }}
+            </ion-text>
+            <ion-text *ngIf="lang == 'ar'"> {{ item.ar }} </ion-text>
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-card>
+
+    <ion-text class="ion-margin-top">
+      <p class="ion-margin" style="color: #7a7a7a">
+        {{ 'medical.appointments.choose_date' | translate }}
+      </p>
+    </ion-text>
+
+    <ion-card>
+      <ion-item lines="none" button mode="md" (click)="datetime.open()">
+        <ion-datetime
+          formControlName="date"
+          #datetime
+          (ionChange)="setSearchDate($event)"
+          displayFormat="DDDD, D MMMM, YYYY"
+          placeholder="Select Date"
+          required
+          readonly
+        ></ion-datetime>
+      </ion-item>
+      <ion-text *ngIf="formDate.dirty && formDate.errors" class="errors">
+        <span *ngIf="validDate()">Date Required</span>
+      </ion-text>
+    </ion-card>
+    <ion-button
+      shape="round"
+      expand="block"
+      class="ion-margin"
+      type="submit"
+      [disabled]="!searchForm.valid || !validDate()"
+      >{{ 'medical.appointments.search' | translate }}
+    </ion-button>
+  </form>
+</ion-content>

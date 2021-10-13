@@ -1,0 +1,12 @@
+<ion-list class="ion-no-padding ion-no-margin" style="width: 100%">
+  <ion-card *ngFor="let appointment of appointments">
+    <app-future-item
+      *ngIf="active === 'future'"
+      [appointment]="appointment"
+    ></app-future-item>
+    <app-past-item
+      *ngIf="active === 'past'"
+      [appointment]="appointment"
+    ></app-past-item>
+  </ion-card>
+</ion-list>

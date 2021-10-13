@@ -1,0 +1,46 @@
+<form (ngSubmit)="submit()" [formGroup]="shopDetailsForm">
+  <ion-grid>
+    <ion-row>
+      <ion-col class="ion-no-padding">
+        <ion-item>
+          <ion-label class="grey-text" position="floating"
+            >Governorate
+          </ion-label>
+          <ion-select formControlName="governorate" required>
+            <ion-select-option value="Alexandria">Alexandria</ion-select-option>
+            <ion-select-option value="Cairo">Cairo</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="ion-no-padding">
+        <ion-item>
+          <ion-label class="grey-text" position="floating">City</ion-label>
+          <ion-select formControlName="city" required>
+            <ion-select-option value="Alexandria">Alexandria</ion-select-option>
+            <ion-select-option value="Cairo">Cairo</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="ion-no-padding">
+        <ion-item>
+          <ion-label class="grey-text" position="floating">Address</ion-label>
+          <ion-input formControlName="address" required></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-button
+    [disabled]="!shopDetailsForm.valid"
+    class="ion-margin round-button"
+    color="green"
+    expand="full"
+    fill="outline"
+    shape="round"
+    type="submit"
+    >Next
+  </ion-button>
+</form>

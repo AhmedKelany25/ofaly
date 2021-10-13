@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons class="ion-no-margin" slot="start">
+      <ion-back-button text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center" mode="ios">New sale</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-list>
+    <ion-item-sliding *ngFor="let item of cartItems">
+      <ion-item lines="none">
+        <ion-img
+          alt="..."
+          slot="start"
+          src="assets/shop/place_holder.png"
+          style="width: 50px; height: 50px"
+        >
+        </ion-img>
+        <ion-label color="dark">
+          <p>{{ item.title }}</p>
+        </ion-label>
+        <ion-note>
+          <b style="color: black">
+            {{ item.quantity }}{{ getMeasurement(item.measurement) }}
+          </b>
+          <span> x £{{ item.price }} </span>
+          <span style="color: black">= £{{ total(item) }}</span>
+        </ion-note>
+      </ion-item>
+      <ion-item-options>
+        <ion-item-option color="green">
+          <ion-icon
+            color="light"
+            slot="top"
+            src="assets/icon/shop/ic_edit_light.svg"
+          ></ion-icon>
+          <span class="ion-text-capitalize">Edit</span>
+        </ion-item-option>
+        <ion-item-option (click)="removeItem(item.id)" color="secondary">
+          <ion-icon name="trash-outline" slot="top"></ion-icon>
+          <span class="ion-text-capitalize">Delete</span>
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>

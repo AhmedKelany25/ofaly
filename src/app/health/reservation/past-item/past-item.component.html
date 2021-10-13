@@ -1,0 +1,46 @@
+<ion-card-header>
+  <ion-card-subtitle>
+    <ion-icon [src]="statusImage(appointment.state)"></ion-icon>
+    {{ status(appointment.state) }}
+  </ion-card-subtitle>
+</ion-card-header>
+<ion-card-content>
+  <ion-grid>
+    <ion-row>
+      <ion-text class="ion-text-wrap ion-margin-bottom">
+        <ion-text *ngIf="appointment.doctor" color="primary">
+          <h4>{{ appointment.doctor.name }}</h4>
+          <p *ngIf="appointment.doctor" style="color: grey">
+            {{ appointment.doctor.specialty[0] }}
+          </p>
+        </ion-text>
+      </ion-text>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-text>
+          <h4>{{ 'medical.appointments.time' | translate }}</h4>
+          <p style="color: black">
+            <strong>{{ formatTime(appointment.time) }}</strong>
+          </p>
+        </ion-text>
+      </ion-col>
+      <ion-col>
+        <ion-text>
+          <h4>{{ 'medical.appointments.date' | translate }}</h4>
+          <p style="color: black">
+            <strong>{{ appointment.date }}</strong>
+          </p>
+        </ion-text>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-text>
+        <h4>{{ 'medical.appointments.location' | translate }}</h4>
+        <p *ngIf="appointment.doctor" style="color: black">
+          <strong>{{ appointment.doctor.location }} </strong>
+        </p>
+      </ion-text>
+    </ion-row>
+  </ion-grid>
+</ion-card-content>

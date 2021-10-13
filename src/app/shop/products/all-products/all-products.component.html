@@ -1,0 +1,23 @@
+<app-products-header (search)="toggleSearch($event)"></app-products-header>
+<ion-content>
+  <ion-item
+    (click)="openCategory()"
+    *ngIf="!categoryId && !searchVisible"
+    button
+    mode="ios"
+  >
+    <ion-icon color="primary" name="folder"></ion-icon>
+    <ion-label class="ion-margin">Categories</ion-label>
+  </ion-item>
+  <ion-item *ngIf="categoryId && !searchVisible" button detail="false">
+    <ion-icon color="primary" name="pencil-outline"></ion-icon>
+    <ion-label class="ion-margin">Edit category details</ion-label>
+  </ion-item>
+
+  <app-products-filter
+    (search)="applyFilter($event)"
+    *ngIf="searchVisible"
+  ></app-products-filter>
+
+  <app-product-list [products]="products"></app-product-list>
+</ion-content>

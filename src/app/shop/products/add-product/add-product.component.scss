@@ -1,0 +1,11 @@
+ion-select::part(icon) {
+  color: #ffffff !important;
+}
+
+.errors {
+  font-size: small;
+  color: var(--ion-color-danger);
+  padding-left: var(--ion-padding);
+  padding-right: var(--ion-padding);
+  margin: 0 auto;
+}

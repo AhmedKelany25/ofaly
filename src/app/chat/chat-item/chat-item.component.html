@@ -1,0 +1,25 @@
+<ion-item button detail="false" lines="none" (click)="goToChatRoom()">
+  <ion-avatar slot="start">
+    <ion-badge>{{ unreadCount }}</ion-badge>
+    <img [src]="avatar" />
+  </ion-avatar>
+  <ion-label>
+    <h3>
+      <b>{{ title }}</b>
+      <span id="time-note" [ngSwitch]="when">
+        <ion-note *ngSwitchCase="'today'">{{ time | date: 'h:mm a' }}</ion-note>
+        <ion-note *ngSwitchCase="'yesterday'">Yesterday</ion-note>
+        <ion-note *ngSwitchDefault>{{ time | date: 'd-MMM-yy' }}</ion-note>
+      </span>
+    </h3>
+    <p *ngIf="message; else messagePlaceholder">
+      {{ message }}
+    </p>
+    <ng-template #messagePlaceholder>
+      <div id="message-placeholder"></div>
+    </ng-template>
+  </ion-label>
+</ion-item>
+
+<ion-progress-bar *ngIf="loading" type="indeterminate"></ion-progress-bar>
+<div *ngIf="!loading" id="line-brake"></div>

@@ -1,0 +1,24 @@
+<app-chat-room-header [chatData]="chat"></app-chat-room-header>
+
+<ion-content>
+  <app-chat-room-messages
+    *ngIf="messages.length; else emptyChat"
+    (requestNext)="fetchNext($event)"
+    [messages]="messages"
+    [messageCount]="chat.messageCount"
+  ></app-chat-room-messages>
+
+  <ng-template #emptyChat>
+    <div class="empty-chat">
+      <ion-text color="medium"> No messages here yet. </ion-text>
+    </div>
+  </ng-template>
+</ion-content>
+
+<ion-footer>
+  <app-chat-room-input
+    [(draft)]="draft"
+    (sendMessage)="sendMessage()"
+    (keyboardUp)="shiftUp()"
+  ></app-chat-room-input>
+</ion-footer>

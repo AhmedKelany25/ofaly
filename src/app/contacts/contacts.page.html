@@ -1,0 +1,45 @@
+<app-contact-header
+  [selected-contacts]="selectedContacts"
+  (search-value)="searchValue = $event"
+  (submit-selection)="submitContacts()"
+></app-contact-header>
+
+<ion-content>
+  <ion-item
+    *ngIf="showGroupItem"
+    lines="none"
+    button
+    detail="false"
+    (click)="selectMultiple = true"
+  >
+    <ion-avatar slot="start">
+      <img src="assets/icon/chat/group-avatar.svg" />
+    </ion-avatar>
+    <ion-label>
+      <h3>
+        <b>New group</b>
+      </h3>
+    </ion-label>
+  </ion-item>
+
+  <app-contact-list
+    *ngIf="contacts.length; else noContacts"
+    [contacts]="contacts"
+    [filters]="filters"
+    [select-multiple]="selectMultiple"
+    [selected-contacts]="selectedContacts"
+    (contact-selected)="selectContact($event)"
+  ></app-contact-list>
+
+  <ng-template #noContacts>
+    <div class="empty-contacts">
+      <ion-text color="dark" *ngIf="searchValue; else emptyContacts">
+        No results found for '{{searchValue}}'
+      </ion-text>
+
+      <ng-template #emptyContacts>
+        <ion-text color="medium"> No contacts here yet </ion-text>
+      </ng-template>
+    </div>
+  </ng-template>
+</ion-content>

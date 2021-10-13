@@ -1,0 +1,26 @@
+.scroll-menu {
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.selected-contact {
+  width: 72px;
+  min-width: 72px;
+  height: 68px;
+  padding: 0 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  ion-avatar {
+    width: 44px;
+    height: 44px;
+    margin: 4px auto 0;
+  }
+  ion-text {
+    margin-bottom: 4px;
+  }
+}
+
+ion-icon {
+  --ionicon-stroke-width: 48px;
+}

@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button text="" defaultHref="/chat"></ion-back-button>
+    </ion-buttons>
+
+    <ion-title mode="ios">New group</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button
+        shape="round"
+        [disabled]="!canSubmit"
+        (click)="createGroupeChat()"
+      >
+        <ion-icon size="large" name="checkmark-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [scrollY]="false">
+  <ion-avatar class="group-image">
+    <img [src]="avatar" />
+  </ion-avatar>
+  <ion-item lines="none">
+    <ion-input
+      [(ngModel)]="name"
+      maxlength="32"
+      placeholder="Type group name here"
+    ></ion-input>
+    <ion-note *ngIf="name"> {{32 - name.length}} </ion-note>
+  </ion-item>
+
+  <div id="line-brake"></div>
+
+  <div class="label-container">
+    <ion-label>Participants: {{members.length}}</ion-label>
+  </div>
+
+  <div class="contacts-list">
+    <ion-row class="ion-no-padding">
+      <div class="ion-text-center contact-item" *ngFor="let members of members">
+        <ion-avatar>
+          <img [src]="members.avatar || 'assets/icon/chat/single-avatar.svg'" />
+        </ion-avatar>
+        <ion-text>
+          <small> {{ members.name}} </small>
+        </ion-text>
+      </div>
+    </ion-row>
+  </div>
+</ion-content>

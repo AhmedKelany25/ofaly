@@ -1,0 +1,14 @@
+<ion-tabs #myTabs (ionTabsDidChange)="getSelectedTab($event)">
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button
+      *ngFor="let menu of menuTabs"
+      tab="{{menu.tab}}"
+      class="ion-justify-content-center ion-no-margin ion-no-padding"
+    >
+      <ion-icon [src]="getTabIcon(menu)"></ion-icon>
+      <ion-label class="ion-text-sm-center ion-no-padding ion-no-margin">
+        <small>{{ menu.title | translate }}</small>
+      </ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>

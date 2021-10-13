@@ -1,0 +1,82 @@
+{
+  "ofaly": "Ofaly",
+  "medical": {
+    "medical": "Medical",
+    "services": {
+      "virtual_clinic": "Virtual Clinic",
+      "support": "Support",
+      "med_file": "Medical File",
+      "appointments": "Appointments",
+      "ask_doctor": "Ask a doctor",
+      "running_bank": "Running Bank",
+      "test_price": "Tests and prices",
+      "invoices_payments": "Invoices & Payments",
+      "healthcare_info": "Healthcare Info",
+      "doctors": "Doctors",
+      "location": "Location",
+      "medical_dictionary": "Medical Dictionary"
+    },
+    "tabs": {
+      "home": "Home",
+      "appointments": "Appointments",
+      "education": "Education",
+      "ask_doctor": "Ask doctor",
+      "med_file": "Medical File"
+    },
+    "search": {
+      "all_specialties": "All specialties",
+      "available_sots": "Available time slots",
+      "available_places": "See all available places",
+      "morning": "Morning",
+      "evening": "Evening",
+      "search_for": "look for a specialty",
+      "results_found": "{{x}} doctors found ({{y}} time slots)"
+    },
+    "appointments": {
+      "all": "All",
+      "make_appointment": "Make appointment",
+      "search": "Search",
+      "past": "Past appointments",
+      "future": "Future appointments",
+      "time": "Time",
+      "date": "Date",
+      "location": "Location",
+      "see_details": "See Details",
+      "rating": "Rating",
+      "new_appointment": "New Appointment",
+      "choose_date": "Choose a date",
+      "choose_specialty": "Choose a specialty",
+      "more_filters": "More filters"
+    },
+    "state": {
+      "standing": "Standing",
+      "done": "Done",
+      "canceled": "Canceled"
+    },
+    "all_specialty": "All specialties"
+  },
+  "back": "back",
+  "dialog": {
+    "no": "No",
+    "yes": "Yes",
+    "ok": "OK",
+    "cancel": "Cancel",
+    "confirm_title": "Confirm appointment",
+    "continue": "Continue"
+  },
+  "langs": {
+    "language": "Language",
+    "en": "English",
+    "ar": "العربية",
+    "ru": "Русский",
+    "fr": "Français"
+  },
+  "soon": {
+    "ru": "Скоро будет",
+    "hr": "בקרוב",
+    "fr": "Bientôt disponible",
+    "ar": "قريبا"
+  },
+  "continueText": "Continue",
+  "settings": "Settings"
+}

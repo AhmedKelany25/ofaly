@@ -1,0 +1,7 @@
+{
+  "name": "ofaly-mobile",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

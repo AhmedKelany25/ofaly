@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons class="ion-no-margin" slot="start">
+      <ion-back-button text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center" mode="ios">Choose</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <app-product-item
+      (click)="addToCard(item)"
+      *ngFor="let item of products"
+      [product-item]="item"
+    ></app-product-item>
+  </ion-list>
+</ion-content>

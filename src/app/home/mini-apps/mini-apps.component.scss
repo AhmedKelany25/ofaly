@@ -1,0 +1,13 @@
+@import 'src/theme/variables';
+
+.custom-button-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cell-border {
+  border-color: var(--ion-color-light-shade);
+  border-width: 0.01em;
+  border-style: solid;
+}

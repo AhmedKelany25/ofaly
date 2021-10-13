@@ -1,0 +1,18 @@
+<ion-item lines="none" button detail="false" (click)="selectContact()">
+  <ion-avatar slot="start">
+    <img [src]="avatar" alt="..." />
+  </ion-avatar>
+  <ion-label>
+    <h3>
+      <b [innerHTML]="name | highlight: filters"></b>
+    </h3>
+    <p [innerHTML]="phoneNumber | highlight: filters:true"></p>
+  </ion-label>
+  <ion-buttons *ngIf="withCheckMark" slot="end">
+    <ion-checkbox
+      color="success"
+      [checked]="isChecked"
+      size="small"
+    ></ion-checkbox>
+  </ion-buttons>
+</ion-item>

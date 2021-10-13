@@ -1,0 +1,36 @@
+<form>
+  <ion-list>
+    <ion-item lines="full">
+      <ion-label color="medium" position="floating">Categories</ion-label>
+      <ion-select [value]="['0']" multiple="true">
+        <ion-select-option value="0">Any</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-label color="medium" position="floating">Availability</ion-label>
+      <ion-select value="0">
+        <ion-select-option value="0">Any</ion-select-option>
+        <ion-select-option value="1">In stock</ion-select-option>
+        <ion-select-option value="2">Not available</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-label color="medium" position="floating">Sort by</ion-label>
+      <ion-select value="0">
+        <ion-select-option value="0">Name: A to Z</ion-select-option>
+        <ion-select-option value="1">Name: Z to A</ion-select-option>
+        <ion-select-option value="2">Price: high to low</ion-select-option>
+        <ion-select-option value="3">Price: low to high</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+  <ion-button
+    class="round-button ion-margin"
+    color="green"
+    expand="full"
+    fill="outline"
+    shape="round"
+    type="submit"
+    >Search
+  </ion-button>
+</form>

@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center"> {{ category.friendly_name }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="searchVisible = !searchVisible">
+        <ion-icon
+          [hidden]="searchVisible"
+          name="search"
+          slot="icon-only"
+        ></ion-icon>
+        <ion-icon
+          [hidden]="!searchVisible"
+          name="close-outline"
+          slot="icon-only"
+        ></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item button>
+    <ion-icon color="primary" src="assets/icon/shop/ic_edit.svg"></ion-icon>
+    <ion-label class="ion-margin">Edit category details</ion-label>
+  </ion-item>
+  <ion-list *ngIf="category && products">
+    <app-product-item *ngFor="let product of products" [product-item]="product">
+    </app-product-item>
+  </ion-list>
+  <ion-fab class="ion-margin" horizontal="end" slot="fixed" vertical="bottom">
+    <ion-fab-button (click)="addProduct()" color="light">
+      <ion-icon color="green" name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

@@ -1,0 +1,83 @@
+{
+  "ofaly": "أوفالي",
+  "medical": {
+    "medical": "الصحة",
+    "services": {
+      "virtual_clinic": "العيادة الإفتراضية",
+      "support": "الدعم",
+      "med_file": "الملف الطبي",
+      "appointments": "المواعيد",
+      "ask_doctor": "إسال طبيب",
+      "running_bank": "Running Bank",
+      "test_price": "التحاليل و الأسعار",
+      "invoices_payments": "الفواتير و الدفع",
+      "healthcare_info": "الرعاية الصحية",
+      "doctors": "الأطباء",
+      "location": "الموقع الجغرافي",
+      "medical_dict": "المعجم الطبي"
+    },
+    "tabs": {
+      "home": "الرئيسية",
+      "appointments": "المواعيد",
+      "education": "التعليم",
+      "ask_doctor": "اسال طبيب",
+      "med_file": "الملف الطبي"
+    },
+    "search": {
+      "all_specialties": "جميع الأقسام",
+      "available_sots": "المواعيد المتاحة",
+      "available_places": "مشاهدة الأماكن",
+      "morning": "صباحا",
+      "evening": "مساءا",
+      "search_for": "ابحث عن قسم",
+      "results_found": "{{x}} طبيب({{y}} موعيد متاح)"
+    },
+    "appointments": {
+      "make_appointment": "احجز موعد",
+      "search": "البحث",
+      "_search": "بحث",
+      "past": "المواعيد السابقة",
+      "future": "المواعيد القادمة",
+      "time": "الوقت",
+      "date": "التاريخ",
+      "location": "الموقع",
+      "see_details": "المزيد",
+      "rating": "التقييم",
+      "new_appointment": "موعد جديد",
+      "choose_date": "اختر موعد",
+      "choose_specialty": "اختر قسم",
+      "more_filters": "بحث متقدم"
+    },
+    "state": {
+      "standing": "قائم",
+      "done": "منعقد",
+      "canceled": "ملغي"
+    },
+    "all_specialty": "جميع الأقسام"
+  },
+  "back": "رجوع",
+  "dialog": {
+    "confirm_title": "تأكيد الموعد",
+    "no": "إلغاء",
+    "yes": "تأكيد",
+    "ok": "موافق",
+    "cancel": "إلغاء",
+    "appointment_choice": " لقد اخترت "
+  },
+  "no": "لا",
+  "yes": "موافق",
+  "langs": {
+    "language": "اللغة",
+    "en": "English",
+    "ar": "العربية",
+    "ru": "Русский",
+    "fr": "Français"
+  },
+  "soon": {
+    "ru": "Скоро будет",
+    "hr": "בקרוב",
+    "fr": "Bientôt disponible"
+  },
+  "continueText": "المتابعة",
+  "settings": "الإعدادات"
+}

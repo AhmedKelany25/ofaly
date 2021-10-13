@@ -1,0 +1,25 @@
+<app-auth-header [defaultHref]="'/auth/language'"></app-auth-header>
+
+<ion-content>
+  <ion-item lines="none" class="ion-margin">
+    <ion-label color="medium" position="floating">
+      <b> Country </b>
+    </ion-label>
+    <ion-select [(ngModel)]="country">
+      <ion-select-option *ngFor="let country of countries" [value]="country">
+        ({{ country.dialCode }}) {{ country.name }}
+      </ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-button
+    [routerLink]="['/auth/phone-number']"
+    [disabled]="!country"
+    class="ion-margin"
+    [color]="country ? 'success' : 'medium'"
+    fill="outline"
+    expand="block"
+  >
+    <b> Next </b>
+  </ion-button>
+</ion-content>

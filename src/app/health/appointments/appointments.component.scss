@@ -1,0 +1,29 @@
+.icon {
+  display: inline-block;
+  font-size: 35px;
+  color: #ffc977;
+  vertical-align: middle;
+}
+
+.text {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.my-custom-class {
+  --background: #222;
+  --spinner-color: #fff;
+  color: #fff;
+}
+
+ion-list > ion-card:last-child {
+  margin-bottom: 100px;
+}
+
+.empty-appointments {
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  top: 50%;
+  transform: translate(0, -50%);
+}

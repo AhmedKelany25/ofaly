@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="125"
+   height="125"
+   viewBox="0 0 125 125"
+   fill="none"
+   version="1.1"
+   id="svg6"
+   sodipodi:docname="ic_appointments.svg"
+   inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)">
+  <metadata
+     id="metadata12">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs10" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="960"
+     inkscape:window-height="489"
+     id="namedview8"
+     showgrid="false"
+     inkscape:zoom="6.0704225"
+     inkscape:cx="30.788863"
+     inkscape:cy="71"
+     inkscape:window-x="0"
+     inkscape:window-y="553"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg6"
+     inkscape:document-rotation="0" />
+  <circle
+     cx="62.5"
+     cy="62.5"
+     r="61.5"
+     fill="#ffffff"
+     stroke="#dc0028"
+     stroke-width="2"
+     id="circle2" />
+  <path
+     fill-rule="evenodd"
+     clip-rule="evenodd"
+     d="m 76,46 h 4.5 c 1.1935,0 2.3381,0.4741 3.182,1.318 C 84.5259,48.1619 85,49.3065 85,50.5 v 30 c 0,1.1935 -0.4741,2.3381 -1.318,3.182 C 82.8381,84.5259 81.6935,85 80.5,85 h -36 C 43.3065,85 42.1619,84.5259 41.318,83.682 40.4741,82.8381 40,81.6935 40,80.5 v -30 c 0,-1.1935 0.4741,-2.3381 1.318,-3.182 C 42.1619,46.4741 43.3065,46 44.5,46 H 49 v -6 h 3 v 6 h 21 v -6 h 3 z M 58,64 h -9 v -3 h 9 z m 18,-3 h -9 v 3 h 9 z M 58,73 h -9 v -3 h 9 z m 9,0 h 9 v -3 h -9 z"
+     fill="#dc0028"
+     id="path4" />
+</svg>

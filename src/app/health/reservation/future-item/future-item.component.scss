@@ -1,0 +1,56 @@
+.icon {
+  display: inline-block;
+  font-size: 35px;
+  color: #ffc977;
+  vertical-align: middle;
+}
+
+.text {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+#container {
+  text-align: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.my-custom-class {
+  --background: #222;
+  --spinner-color: #fff;
+
+  color: #fff;
+}
+
+.item-avatar {
+  height: 62px;
+  width: 62px;
+  max-width: 62px !important; //any size
+  max-height: 62px !important; //any size
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+ion-list > ion-card:last-child {
+  margin-bottom: 100px;
+}
+
+#container strong {
+  font-size: 20px;
+  line-height: 26px;
+}
+
+#container p {
+  font-size: 16px;
+  line-height: 22px;
+  color: #8c8c8c;
+  margin: 0;
+}
+
+#container a {
+  text-decoration: none;
+}

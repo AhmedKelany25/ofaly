@@ -1,0 +1,178 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons class="ion-no-margin" slot="start">
+      <ion-back-button defaultHref="shop" text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center" mode="ios">New Sale</ion-title>
+    <ion-buttons *ngIf="totalCheck" slot="end">
+      <ion-button>
+        <ion-icon name="checkmark-outline" size="large"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item
+    (click)="openCart()"
+    button
+    class="ion-text-end"
+    color="dark"
+    mode="md"
+  >
+    <ion-text class="ion-text-end" color="light" style="width: 100%">
+      <strong class="ion-text-nowrap" style="font-size: 24px">
+        {{ cartTotal }}.<sup>{{ cartTotal % 1 }}</sup>
+      </strong>
+    </ion-text>
+  </ion-item>
+
+  <app-barcode-scanner
+    (click)="selectProduct()"
+    *ngIf="!pendingProduct; else elseBlock"
+    class="ion-margin ion-padding"
+    style="height: 200px; width: 90%"
+  ></app-barcode-scanner>
+
+  <ng-template #elseBlock>
+    <ion-item class="text-content" lines="none">
+      <ion-img
+        src="assets/shop/place_holder.png"
+        style="width: 50px; height: 50px"
+      ></ion-img>
+      <ion-label class="ion-text-start ion-margin-start">
+        <h2 *ngIf="pendingProduct">
+          {{ pendingProduct.friendly_name }}
+        </h2>
+        <p *ngIf="pendingProduct" style="color: black">
+          <b> {{ amount }} </b> x $ {{ pendingProduct.price }} =
+          <b>${{ calculateTotal() }}</b>
+        </p>
+      </ion-label>
+    </ion-item>
+  </ng-template>
+
+  <ion-slides #slides>
+    <!-- <ion-slide *ngIf="!pendingProduct; else elseBlock">
+      <ion-grid style="height: 200px">
+        <ion-row>
+          <ion-col class="ion-margin"> </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-slide>
+    <ion-slide #elseBlock>
+      <ion-grid>
+        <ion-row>
+          <ion-col class="ion-margin ion-align-content-center">
+            <ion-item class="text-content" lines="none">
+              <ion-img
+                src="assets/shop/place_holder.png"
+                style="width: 50px; height: 50px"
+              ></ion-img>
+              <ion-label class="ion-text-start ion-margin-start">
+                <h2 *ngIf="pendingProduct">
+                  {{ pendingProduct.friendly_name }}
+                </h2>
+                <p *ngIf="pendingProduct" style="color: black">
+                  <b> {{ amount }} </b> x $ {{ pendingProduct.price }} =
+                  <b>${{ calculateTotal() }}</b>
+                </p>
+              </ion-label>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-slide> -->
+  </ion-slides>
+</ion-content>
+
+<ion-footer>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-item (click)="amount = 1" button lines="none" mode="md">
+          <ion-label class="ion-text-center"><strong>1</strong></ion-label>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-item (click)="amount = 2" button lines="none" mode="md">
+          <ion-label class="ion-text-center"><strong>2</strong></ion-label>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-item (click)="amount = 3" button lines="none" mode="md">
+          <ion-label class="ion-text-center"><strong>3</strong></ion-label>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-item (click)="amount = 4" button lines="none" mode="md">
+          <ion-label class="ion-text-center"><strong>4</strong></ion-label>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-item (click)="amount = 5" button lines="none" mode="md">
+          <ion-label class="ion-text-center"><strong>5</strong></ion-label>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-item (click)="amount = 6" button lines="none" mode="md">
+          <ion-label class="ion-text-center"><strong>6</strong></ion-label>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-item (click)="amount = 7" button lines="none" mode="md">
+          <ion-label class="ion-text-center"><strong>7</strong></ion-label>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-item (click)="amount = 8" button lines="none" mode="md">
+          <ion-label class="ion-text-center"><strong>8</strong></ion-label>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-item (click)="amount = 9" button lines="none" mode="md">
+          <ion-label class="ion-text-center"><strong>9</strong></ion-label>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-item (click)="delete()" button lines="none" mode="md">
+          <ion-label class="ion-text-center">
+            <ion-icon
+              [name]="cancelIcon"
+              color="danger"
+              size="large"
+            ></ion-icon>
+          </ion-label>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-item (click)="amount = 0" button lines="none" mode="md">
+          <ion-label class="ion-text-center"><strong>0</strong></ion-label>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-item
+          (click)="addToCart()"
+          [disabled]="!pendingProduct"
+          button
+          lines="none"
+          mode="md"
+        >
+          <ion-label class="ion-text-center">
+            <ion-icon
+              color="success"
+              name="checkmark-outline"
+              size="large"
+            ></ion-icon>
+          </ion-label>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer>

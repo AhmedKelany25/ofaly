@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button text="" defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+
+    <ion-title mode="ios" class="ion-text-center">Select Contact</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button
+        *ngIf="selectedContacts.length"
+        (click)="submitSelection.emit()"
+      >
+        <ion-icon size="large" name="checkmark-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+
+  <ion-item class="search-bar" lines="full">
+    <ion-input
+      placeholder="Search contacts"
+      (ionChange)="searchValueChange.emit($event.target.value)"
+      mode="md"
+      clearInput
+    ></ion-input>
+  </ion-item>
+
+  <ion-item
+    class="scroll-menu ion-no-padding"
+    *ngIf="selectedContacts.length"
+    lines="none"
+  >
+    <div
+      class="ion-text-center selected-contact"
+      *ngFor="let contact of selectedContacts"
+    >
+      <ion-avatar>
+        <img [src]="contact.avatar || 'assets/icon/chat/single-avatar.svg'" />
+      </ion-avatar>
+      <ion-text>
+        <small> {{ contact.name.split(' ')[0] }} </small>
+      </ion-text>
+    </div>
+  </ion-item>
+</ion-header>
